@@ -17,7 +17,7 @@ class User {
 
     function create(){
         $db = new Database();
-        $conn = $db->create();
+        $conn = $db->connect();
         
         try{
             $stmt = $conn->prepare("INSERT INTO users (name, email, pass, avatar)

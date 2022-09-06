@@ -3,7 +3,7 @@
 
 class Database{
 
-    function create(){
+    function connect(){
         $servername = "localhost";
         $database = "montapc"; 
         $username = "root"; 

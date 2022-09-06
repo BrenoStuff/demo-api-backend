@@ -57,18 +57,18 @@ class UserController{
         $output->response($result);
     }
 
-    function getById($id){
+    function byId(){
         // Allow only GET method
         $route = new Router();
-        $route->allowedMethod('GET');
+        $route->allowedMethod('POST');
 
         // Get the entries
-        $id = $_GET['id'];
+        $id = $_POST['id'];
 
         // Validate the entries
         // Execute the query
         $user = new User($id, null, null, null, null);
-        $userById = $user->getById();
+        $userById = $user->byId();
 
         // Return the result
         $result["success"]["message"] = "User has been successfully listed!";

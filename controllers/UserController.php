@@ -6,6 +6,10 @@ class UserController{
 
     //Methods
     function signup(){
+        // Allow only POST method
+        $route = new Router();
+        $route->allowedMethod('POST');
+
         // Get the entries
         $name = $_POST['name'];
         $email = $_POST['email'];
@@ -32,6 +36,26 @@ class UserController{
         $output->response($result);
     }
 
+    function list(){
+        // Allow only GET method
+        $route = new Router();
+        $route->allowedMethod('GET');
+
+        // Get the entries
+        // Validate the entries
+
+        // Execute the query
+        $user = new User(null, null, null, null, null);
+
+        // Return the result
+        $listUsers = $user->list();
+        $result["success"]["message"] = "User list has been successfully listed!";
+        $result["data"] = $listUsers;
+
+        // Give the html output
+        $output = new Output();
+        $output->response($result);
+    }
 }
 
 ?>

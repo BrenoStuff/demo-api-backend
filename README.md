@@ -3,6 +3,6 @@
 Aprendendo Objeto Orientado e API na linguagem PHP
 
 ### Informação acadêmica
-Professor: Renan 
-Escola: IFSP - Caraguatatuba
+Professor: Renan <br>
+Escola: IFSP - Caraguatatuba <br>
 Matéria: Linguagem Web 3

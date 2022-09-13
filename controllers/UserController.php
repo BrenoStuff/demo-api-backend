@@ -60,23 +60,32 @@ class UserController{
     function byId(){
         // Allow only GET method
         $route = new Router();
-        $route->allowedMethod('POST');
-
-        // Get the entries
-        $id = $_POST['id'];
+        $route->allowedMethod('GET');
 
         // Validate the entries
+        $output = new Output();
+        if(isset($_GET['id'])){
+            // Get the entries
+            $id = $_GET['id'];
+        } else {
+            // Return error
+            $result['error']['message'] = "Parameter ID is required";
+            $output->response($result, 406);
+        }
         // Execute the query
         $user = new User($id, null, null, null, null);
         $userById = $user->byId();
 
         // Return the result
-        $result["success"]["message"] = "User has been successfully listed!";
-        $result['data'] = $userById;
+        if($userById){
+            $result["success"]["message"] = "User has been successfully listed!";
+            $result['data'] = $userById;
+            $output->response($result);
+        } else {
+            $result['error']['message'] = "User not found";
+            $output->response($result, 404);
+        }
 
-        // Give the html output
-        $output = new Output();
-        $output->response($result);
     }
 }
 

@@ -68,5 +68,49 @@
       ]
     },
     "tests": []
+  },
+  {
+    "_id": "527296a5-1629-44a3-b9fb-eeb69ce5ae1c",
+    "colId": "b3bddeab-f226-4c2a-9869-5f49917f8b70",
+    "containerId": "",
+    "name": "by-Id",
+    "url": "http://localhost/PJ3/ifsp-api-php/user/byId?id=4",
+    "method": "GET",
+    "sortNum": 20000,
+    "created": "2022-09-13T18:13:01.271Z",
+    "modified": "2022-09-13T18:34:36.008Z",
+    "headers": [],
+    "params": [
+      {
+        "name": "id",
+        "value": "4",
+        "isPath": false
+      }
+    ],
+    "body": {
+      "type": "formdata",
+      "raw": "",
+      "form": [
+        {
+          "name": "id",
+          "value": "1"
+        }
+      ]
+    },
+    "tests": []
+  },
+  {
+    "_id": "bd730d7f-2577-499b-874f-5a302fd4c123",
+    "colId": "b3bddeab-f226-4c2a-9869-5f49917f8b70",
+    "containerId": "",
+    "name": "list",
+    "url": "http://localhost/PJ3/ifsp-api-php/user/list",
+    "method": "GET",
+    "sortNum": 30000,
+    "created": "2022-09-13T18:37:45.556Z",
+    "modified": "2022-09-13T18:37:45.556Z",
+    "headers": [],
+    "params": [],
+    "tests": []
   }
 ]

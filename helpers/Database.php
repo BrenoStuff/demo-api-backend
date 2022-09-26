@@ -19,8 +19,7 @@ class Database{
     function dbError($e){
         $result["error"]["message"] = "Server error, please try again!";
         $result["error"]["database"] = $e;
-        $output = new Output();
-        $output->response($result, 500);
+        Output::response($result, 500);
     }
 }
 

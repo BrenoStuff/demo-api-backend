@@ -32,8 +32,7 @@ class UserController{
         $result["user"]["avatar"] = $avatar;
 
         // Give the html output
-        $output = new Output();
-        $output->response($result);
+        Output::response($result);
     }
 
     function list(){
@@ -53,8 +52,7 @@ class UserController{
         $result["data"] = $listUsers;
 
         // Give the html output
-        $output = new Output();
-        $output->response($result);
+        Output::response($result);
     }
 
     function byId(){
@@ -63,14 +61,13 @@ class UserController{
         $route->allowedMethod('GET');
 
         // Validate the entries
-        $output = new Output();
         if(isset($_GET['id'])){
             // Get the entries
             $id = $_GET['id'];
         } else {
             // Return error
             $result['error']['message'] = "Parameter ID is required";
-            $output->response($result, 406);
+            Output::response($result, 406);
         }
         // Execute the query
         $user = new User($id, null, null, null, null);
@@ -80,10 +77,10 @@ class UserController{
         if($userById){
             $result["success"]["message"] = "User has been successfully listed!";
             $result['data'] = $userById;
-            $output->response($result);
+            Output::response($result);
         } else {
             $result['error']['message'] = "User not found";
-            $output->response($result, 404);
+            Output::response($result, 404);
         }
 
     }
@@ -91,9 +88,7 @@ class UserController{
     function delete(){
         $route = new Router();
         $route->allowedMethod('DELETE');
-
-        $output = new Output();
-
+        
         //get json input by body json
         $jsonData = file_get_contents("php://input");
         $data = json_decode($jsonData, true);
@@ -102,7 +97,7 @@ class UserController{
             $id = $data['id'];
         } else {
             $result['error']['message'] = "Id parameter required!";
-            $output->response($result, 406);
+            Output::response($result, 406);
         }
 
         $user = new User($id, null, null, null, null);
@@ -110,10 +105,10 @@ class UserController{
 
         if($deleted){
             $result["success"]["message"] = "User $id deleted successfully!";
-            $output->response($result);
+            Output::response($result);
         } else {
             $result["error"]["message"] = "User $id not found to be deleted!";
-            $output->response($result, 404);
+            Output::response($result, 404);
         }
     }
     

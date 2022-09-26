@@ -4,7 +4,9 @@ class Router {
     // Properties
 
     // Methods
-    function gateKeeper(){
+    static function gateKeeper(){
+        self::handleCORS();
+
         $url = $_SERVER['REQUEST_URI']; // Get the url solicited
         $urlClean = str_replace(BASE_PATH,'',$url); // Clear the url solicited (remove the main path)
         $urlArray = explode('/', $urlClean); // Divide the $urlClean by the Slash
@@ -27,12 +29,11 @@ class Router {
     function allowedMethod($method){
         if($_SERVER['REQUEST_METHOD'] !== $method){
             $result['error']['message'] =  'Method ' . $_SERVER['REQUEST_METHOD'] . ' is not allowed';
-            $output = new Output();
-            $output->response($result, 405);
+            Output::response($result, 405);
         }
     }
 
-    function handleCORS(){
+    static function handleCORS(){
         if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
             header("Access-Control-Allow-Origin: " . ALLOWED_HOSTS);
             header("Access-Control-Allow-Methods: GET, POST, OPTIONS, DELETE, PUT");

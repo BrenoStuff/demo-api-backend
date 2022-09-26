@@ -3,15 +3,10 @@
 
 class Database{
 
-    function connect(){
-        $servername = "localhost";
-        $database = "montapc"; 
-        $username = "root"; 
-        $password = ""; 
-        
+    function connect(){        
         try { 
         
-            $conn = new PDO("mysql:host=$servername;dbname=$database", $username, $password);
+            $conn = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS);
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
             return $conn;

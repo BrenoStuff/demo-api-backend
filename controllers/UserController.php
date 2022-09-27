@@ -11,10 +11,11 @@ class UserController{
         $route->allowedMethod('POST');
 
         // Get the entries
-        $name = $_POST['name'];
-        $email = $_POST['email'];
-        $pass = sha1($_POST['pass']);
-        $avatar = $_POST['avatar'];
+        $data = Input::getData();
+        $name = $data['name'];
+        $email = $data['email'];
+        $pass = sha1($data['pass']);
+        $avatar = $data['avatar'];
         
         // Validate the entries
 
@@ -28,7 +29,6 @@ class UserController{
         $result["user"]["id"] = $id;
         $result["user"]["name"] = $name;
         $result["user"]["email"] = $email;
-        $result["user"]["pass"] = $pass;
         $result["user"]["avatar"] = $avatar;
 
         // Give the html output
@@ -88,7 +88,7 @@ class UserController{
     function delete(){
         $route = new Router();
         $route->allowedMethod('DELETE');
-        
+
         //get json input by body json
         $jsonData = file_get_contents("php://input");
         $data = json_decode($jsonData, true);

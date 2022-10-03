@@ -75,11 +75,11 @@ class UserController{
 
         // Return the result
         if($userById){
-            $result["success"]["message"] = "User has been successfully listed!";
+            $result["success"]["message"] = "User $id has been successfully listed!";
             $result['data'] = $userById;
             Output::response($result);
         } else {
-            $result['error']['message'] = "User not found";
+            $result['error']['message'] = "User $id not found";
             Output::response($result, 404);
         }
 
@@ -108,6 +108,28 @@ class UserController{
             Output::response($result);
         } else {
             $result["error"]["message"] = "User $id not found to be deleted!";
+            Output::response($result, 404);
+        }
+    }
+
+    function update(){
+        Router::allowedMethod('PUT');
+
+        $data = Input::getData();
+        $id = $data['id'];
+        $name = $data['name'];
+        $email = $data['email'];
+        $avatar = $data['avatar'];
+
+        $user = new User($id, $name, $email, null, $avatar);
+        $updated = $user->update();
+
+        if($updated){
+            $result["success"]["message"] = "User $id updated successfully!";
+            $result["user"] = $data;
+            Output::response($result);
+        } else {
+            $result["error"]["message"] = "User $id not found to be updated!";
             Output::response($result, 404);
         }
     }

@@ -26,7 +26,7 @@ class Router {
         }
     }
 
-    function allowedMethod($method){
+    static function allowedMethod($method){
         if($_SERVER['REQUEST_METHOD'] !== $method){
             $result['error']['message'] =  'Method ' . $_SERVER['REQUEST_METHOD'] . ' is not allowed';
             Output::response($result, 405);

@@ -7,8 +7,7 @@ class UserController{
     //Methods
     function signup(){
         // Allow only POST method
-        $route = new Router();
-        $route->allowedMethod('POST');
+        Router::allowedMethod('POST');
 
         // Get the entries
         $data = Input::getData();
@@ -37,8 +36,7 @@ class UserController{
 
     function list(){
         // Allow only GET method
-        $route = new Router();
-        $route->allowedMethod('GET');
+        Router::allowedMethod('GET');
 
         // Get the entries
         // Validate the entries
@@ -57,8 +55,7 @@ class UserController{
 
     function byId(){
         // Allow only GET method
-        $route = new Router();
-        $route->allowedMethod('GET');
+        Router::allowedMethod('GET');
 
         // Validate the entries
         if(isset($_GET['id'])){
@@ -86,8 +83,7 @@ class UserController{
     }
 
     function delete(){
-        $route = new Router();
-        $route->allowedMethod('DELETE');
+        Router::allowedMethod('DELETE');
 
         //get json input by body json
         $jsonData = file_get_contents("php://input");

@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "_id": "c7873fda-1400-43ed-b961-94604ec99f6f",
+    "name": "config",
+    "default": true,
+    "sortNum": 10000,
+    "created": "2022-10-10T19:07:05.146Z",
+    "modified": "2022-10-10T19:07:28.582Z",
+    "data": [
+      {
+        "name": "BASE_PATH",
+        "value": "http://localhost/PJ3/ifsp-api-php/"
+      }
+    ]
+  }
+]

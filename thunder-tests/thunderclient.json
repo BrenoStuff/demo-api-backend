@@ -1,71 +1,20 @@
 [
   {
-    "_id": "e34d6111-bf19-4dee-a394-fae5da1c7c49",
-    "colId": "9ebd46f3-a992-433c-aebc-145f917af576",
-    "containerId": "",
-    "name": "Municipios por UF",
-    "url": "https://servicodados.ibge.gov.br/api/v1/localidades/estados/{UF}/municipios",
-    "method": "GET",
-    "sortNum": 10000,
-    "created": "2022-08-16T19:45:23.471Z",
-    "modified": "2022-08-16T19:45:23.471Z",
-    "headers": [],
-    "params": [
-      {
-        "name": "UF",
-        "value": "SP",
-        "isPath": true
-      }
-    ],
-    "tests": []
-  },
-  {
-    "_id": "5031e47f-6f8d-42d3-9cfb-709212dd2e7f",
-    "colId": "9ebd46f3-a992-433c-aebc-145f917af576",
-    "containerId": "",
-    "name": "Estados por UF",
-    "url": "https://servicodados.ibge.gov.br/api/v1/localidades/estados",
-    "method": "GET",
-    "sortNum": 20000,
-    "created": "2022-08-16T19:46:15.372Z",
-    "modified": "2022-08-16T19:46:15.372Z",
-    "headers": [],
-    "params": [],
-    "tests": []
-  },
-  {
     "_id": "63dfcf63-7c8d-4e36-9a1e-4f455843690c",
     "colId": "b3bddeab-f226-4c2a-9869-5f49917f8b70",
     "containerId": "",
     "name": "sign-up",
-    "url": "http://localhost/PJ3/ifsp-api-php/user/signup",
+    "url": "{{BASE_PATH}}user/signup",
     "method": "POST",
     "sortNum": 10000,
     "created": "2022-09-06T18:53:55.331Z",
-    "modified": "2022-09-06T18:53:55.331Z",
+    "modified": "2022-10-10T20:07:59.127Z",
     "headers": [],
     "params": [],
     "body": {
-      "type": "formdata",
-      "raw": "",
-      "form": [
-        {
-          "name": "name",
-          "value": "Allan"
-        },
-        {
-          "name": "email",
-          "value": "allangabriel@gmail.com"
-        },
-        {
-          "name": "pass",
-          "value": "allangabriel"
-        },
-        {
-          "name": "avatar",
-          "value": "https://suap.ifsp.edu.br/media/alunos/204297.pgo5KBMZX9RU.jpeg"
-        }
-      ]
+      "type": "json",
+      "raw": "{\n  \"name\": \"Tester\",\n  \"email\": \"tester@gmail.com\",\n  \"pass\": \"tester\",\n  \"avatar\": \"https://st3.depositphotos.com/1767687/16607/v/450/depositphotos_166074422-stock-illustration-default-avatar-profile-icon-grey.jpg\"\n}",
+      "form": []
     },
     "tests": []
   },
@@ -74,11 +23,11 @@
     "colId": "b3bddeab-f226-4c2a-9869-5f49917f8b70",
     "containerId": "",
     "name": "by-Id",
-    "url": "http://localhost/PJ3/ifsp-api-php/user/byId?id=4",
+    "url": "{{BASE_PATH}}user/byId?id=4",
     "method": "GET",
     "sortNum": 20000,
     "created": "2022-09-13T18:13:01.271Z",
-    "modified": "2022-09-13T18:34:36.008Z",
+    "modified": "2022-10-10T19:08:50.928Z",
     "headers": [],
     "params": [
       {
@@ -104,13 +53,51 @@
     "colId": "b3bddeab-f226-4c2a-9869-5f49917f8b70",
     "containerId": "",
     "name": "list",
-    "url": "http://localhost/PJ3/ifsp-api-php/user/list",
+    "url": "{{BASE_PATH}}user/list",
     "method": "GET",
     "sortNum": 30000,
     "created": "2022-09-13T18:37:45.556Z",
-    "modified": "2022-09-13T18:37:45.556Z",
+    "modified": "2022-10-10T19:08:58.414Z",
     "headers": [],
     "params": [],
+    "tests": []
+  },
+  {
+    "_id": "fcf44499-f113-47e5-aa97-02c3d9433f00",
+    "colId": "40dc91da-e0f5-473c-8a16-72a070417933",
+    "containerId": "",
+    "name": "login",
+    "url": "{{BASE_PATH}}auth/login",
+    "method": "POST",
+    "sortNum": 10000,
+    "created": "2022-10-10T19:15:17.290Z",
+    "modified": "2022-10-10T19:15:17.290Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"email\": \"micaella@gmail.com\",\n  \"pass\": \"micaella\"\n}",
+      "form": []
+    },
+    "tests": []
+  },
+  {
+    "_id": "e4daf6c4-7da6-4d59-ae0f-37fbe579b4d7",
+    "colId": "40dc91da-e0f5-473c-8a16-72a070417933",
+    "containerId": "",
+    "name": "logout",
+    "url": "{{BASE_PATH}}auth/logout",
+    "method": "POST",
+    "sortNum": 20000,
+    "created": "2022-10-10T20:05:40.597Z",
+    "modified": "2022-10-10T20:05:40.597Z",
+    "headers": [],
+    "params": [],
+    "body": {
+      "type": "json",
+      "raw": "{\n  \"idUser\": \"6\",\n  \"token\": \"64cdaa97ead511516d3dd90fca627b5e15668815\"\n}",
+      "form": []
+    },
     "tests": []
   }
 ]
